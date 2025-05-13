@@ -1,8 +1,30 @@
 import { View, StyleSheet, Text, Image, TextInput, Button } from "react-native-web"
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { auth } from "../controller";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 
 export default function Login({navigation}){
+
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    
+    const VerificarUsuario = () => {
+        navigation.navigate('TelaCadastro')
+
+        const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
+    }
     return(
         <View style = {styles.containerProfile}> 
                     <View style = {styles.viewimg}>
