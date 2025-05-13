@@ -28,6 +28,7 @@ export default function Login({navigation}){
                     title= "Entrar"
                     color="red"
                     onPress= {()=> navigation.navigate('HomeTab')}
+                    
                     // disable
                     />
                     <Button 

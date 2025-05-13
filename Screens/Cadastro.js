@@ -1,16 +1,25 @@
 import { View, StyleSheet, Text, Image, TextInput, Button } from "react-native-web"
+import { useState } from "react";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../controller";
 
-
 export default function Cadastro({navigation}){
+
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const RegistroUsuario = () => {
 
+    const RegistroUsuario = () => {
+        createUserWithEmailAndPassword(auth, email, senha)
+  .then((userCredential) => {
+    console.log('Usuario Cadastrado!', userCredential.user.email);
+    navigation.navigate('TelaLogin')
+  })
+  .catch((error) => {
+    console.log('Error', error.message);
+  });
     }
-    
+
     return(
         <View style = {styles.containerProfile}> 
                     <View style = {styles.viewimg}>
@@ -25,23 +34,28 @@ export default function Cadastro({navigation}){
                     <View style = {styles.divisao}>
                         <TextInput style = {styles.txtinput}
                         placeholder="Usuario" 
+                        value={email}
+                        onChangeText={setEmail}
                         />
                         <br></br>
                         <TextInput style = {styles.txtinput}
                         placeholder="Senha" 
+                        value={senha}
+                        onChangeText={setSenha}
+                        secureTextEntry = {true}
                         />
                     </View>
                     <br></br>
-                    <Button 
+                    {/* <Button 
                     title= "Voltar"
                     color="red"
                     onPress= {()=> navigation.navigate('TelaLogin')}
                     // disable
-                    />
+                    /> */}
                     <Button 
                     title= "Cadastrar"
                     color="red"
-                    onPress= {()=> navigation.navigate('')}
+                    onPress= {RegistroUsuario}
                     // disable
                     />
                      <br></br>
