@@ -12,6 +12,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from "@react-navigation/stack";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 function BottomTabs(){
   const BottomTab = createBottomTabNavigator();
@@ -31,7 +32,7 @@ function BottomTabs(){
       options={{tabBarIcon: () => <AntDesign name="shoppingcart" size={24} color="black" />}}
       />
       <BottomTab.Screen name = "CadastroProductTab" component={cadastroProduto}
-      options={{tabBarIcon: () => <AntDesign name="shoppingcart" size={24} color="black" />}}
+      options={{tabBarIcon: () => <MaterialIcons name="admin-panel-settings" size={24} color="black" />}}
       />
       
     </BottomTab.Navigator>
