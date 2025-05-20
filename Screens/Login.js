@@ -3,7 +3,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { auth } from "../controller";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-
+//.
 export default function Login({navigation}){
 
     const [email, setEmail] = useState("");
@@ -23,6 +23,7 @@ signInWithEmailAndPassword(auth, email, password)
     const errorCode = error.code;
     const errorMessage = error.message;
   });
+  
 
     }
     return(
