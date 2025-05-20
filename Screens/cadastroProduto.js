@@ -5,21 +5,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 
 //.
-export default function Login({navigation}){
+export default function cadastroPorduto({navigation}){
 
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    
-    const VerificarUsuario = () => {
-        // navigation.navigate('HomeTab')
-        signInWithEmailAndPassword(auth, email, senha)
-        .then((userCredential) => {
-            navigation.navigate('HomeTab')
-        })
-        .catch((error) => {
-            console.log('Erro ao logar: ', error.message);
-        });
-    }
+    const [nome, setNome] = useState("");
+    const [preco, setPreco] = useState("");
+    const [imagem, setImagem] = useState("");
 
     return(
         <View style = {styles.containerProfile}> 
@@ -29,37 +19,32 @@ export default function Login({navigation}){
 
                     <View style = {styles.viewimg}>
                         <Text style = {styles.titulo}> <h1>Venha para o McDonalds<br></br>
-                                FAÇA JA O SEU LOGIN ! ! ! </h1>
+                                TELA DE CADASTRO DO PRODUTO </h1>
                         </Text>
                     </View>
                     <View style = {styles.divisao}>
                         <TextInput style = {styles.txtinput}
-                        placeholder="Usuario" 
-                        value= {email}
-                        onChangeText={setEmail}
-
+                        placeholder="Nome" 
+                        value= {nome}
+                        onChangeText={setNome}
                         />
-                        <br></br>
                         <TextInput style = {styles.txtinput}
-                        placeholder="Senha" 
-                        value= {senha}
-                        onChangeText={setSenha}
+                        placeholder="Preço" 
+                        value= {preco}
+                        onChangeText={setPreco}
+                        />
+                        <TextInput style = {styles.txtinput}
+                        placeholder="URL da Imagem" 
+                        value= {imagem}
+                        onChangeText={setImagem}
                         />
                     </View>
                     <br></br>
                     <Button 
-                    title= "Entrar"
-                    color="#8392ab"
-                    onPress={VerificarUsuario}                    
-                    />
-                    <Button 
                     title= "Cadastrar"
                     color="#8392ab"
-                    onPress= {()=> navigation.navigate('TelaCadastro')}
+                    // onPress={}                    
                     />
-                     <br></br>
-         
-        {/* </ImageBackground> */}
                 </View>
 
     );

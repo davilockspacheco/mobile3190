@@ -2,17 +2,17 @@ import { View, Text, Image, StyleSheet } from "react-native";
 
 export default function CardProduct({id, nome, preco, imagem}){
     return(
-        <View style={StyleSheet.card}>
-            <Image style={StyleSheet.img} source={{uri: imagem}}/>
-            <Text style={StyleSheet.txtItem}>{id}</Text>
-            <Text style={StyleSheet.txtItem}>{nome} - R${preco.toFixed(2)}</Text>
+        <View style={styles.card}>
+            <Image style={styles.img} source={{uri: imagem}}/>
+            <Text style={styles.txtItem}>{id}</Text>
+            <Text style={styles.txtItem}>{nome} - R${preco.toFixed(2)}</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     card:{
-        backgroundColor: 'white',
+        backgroundColor: '#8392ab',
         borderRadius: 8,
         padding: 10,
         margin: 10,
@@ -21,7 +21,11 @@ const styles = StyleSheet.create({
     txtItem:{
         fontSize: 22,
         fontWeight: 'bold',
-        color: 'red'
+        color: '#e9ecef'
     },
+    img:{
+        height: 50,
+        width: 50,
+    }
     
 })
