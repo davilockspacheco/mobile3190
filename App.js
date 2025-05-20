@@ -4,7 +4,7 @@ import Feed from "./Screens/Feed";
 import Count from "./Screens/count";
 import Produto from "./Screens/produto";
 import Cadastro from "./Screens/Cadastro";
-import cadastroPorduto from "./Screens/cadastroProduto";
+import cadastroProduto from "./Screens/cadastroProduto";
 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
@@ -30,7 +30,7 @@ function BottomTabs(){
       <BottomTab.Screen name = "ProductTab" component={Produto}
       options={{tabBarIcon: () => <AntDesign name="shoppingcart" size={24} color="black" />}}
       />
-      <BottomTab.Screen name = "CadastroProductTab" component={cadastroPorduto}
+      <BottomTab.Screen name = "CadastroProductTab" component={cadastroProduto}
       options={{tabBarIcon: () => <AntDesign name="shoppingcart" size={24} color="black" />}}
       />
       
